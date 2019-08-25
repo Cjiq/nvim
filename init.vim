@@ -15,6 +15,9 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+if empty(glob('~/.config/nvim/plugged/deoplete.nvim'))
+  silent !pip3 install --user pynvim 
+endif
 call plug#begin('~/.config/nvim/plugged')
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'kien/ctrlp.vim' " fuzzy find files
@@ -87,3 +90,11 @@ nnoremap <leader>rr :source ~/.config/nvim/init.vim<Enter>
 " Shortcut for typing lists
 nnoremap <leader>o :normal o- <ENTER>i 
 nnoremap <leader>O :normal O- <ENTER>i 
+
+" Dropdown menu
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
+" Deoplete
+inoremap <expr> <Tab> pumvisible() ? "\<Right>" : "\<Tab>"
+
