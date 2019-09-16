@@ -45,6 +45,9 @@ colorscheme monokai
 " Share clipboard between vim instances
 set clipboard=unnamed
 
+" Faster redrawing
+set ttyfast
+
 " Use relative numbering
 set relativenumber 
 set number  
