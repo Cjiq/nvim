@@ -90,6 +90,9 @@ let	g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave = 1
 let g:go_version_warning = 0
  
+" ctrlp
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Python
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
