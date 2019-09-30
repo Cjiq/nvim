@@ -1,12 +1,12 @@
-"                                         ▟▙            
-"                                         ▝▘            
+"                                         ▟▙
+"                                         ▝▘
 " ██▃▅▇█▆▖  ▗▟████▙▖   ▄████▄   ██▄  ▄██  ██  ▗▟█▆▄▄▆█▙▖
 " ██▛▔ ▝██  ██▄▄▄▄██  ██▛▔▔▜██  ▝██  ██▘  ██  ██▛▜██▛▜██
 " ██    ██  ██▀▀▀▀▀▘  ██▖  ▗██   ▜█▙▟█▛   ██  ██  ██  ██
 " ██    ██  ▜█▙▄▄▄▟▊  ▀██▙▟██▀   ▝████▘   ██  ██  ██  ██
 " ▀▀    ▀▀   ▝▀▀▀▀▀     ▀▀▀▀       ▀▀     ▀▀  ▀▀  ▀▀  ▀▀
-" 
-" 
+"
+"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -31,7 +31,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'fatih/vim-go'
     Plug 'chrisbra/Colorizer'
 
-	Plug 'neomake/neomake'
+    Plug 'neomake/neomake'
     Plug 'zchee/deoplete-jedi'
     Plug 'davidhalter/jedi-vim'
     Plug 'sbdchd/neoformat'
@@ -53,9 +53,12 @@ set clipboard=unnamed
 " Faster redrawing
 set ttyfast
 
+" Listchars
+set listchars=tab:▸\ ,trail:·,precedes:←,extends:→
+
 " Use relative numbering
-set relativenumber 
-set number  
+set relativenumber
+set number
 
 " Enable syntax highlighting
 syntax on
@@ -86,10 +89,10 @@ let g:vimtex_view_method = 'zathura'
 
 " GOLANG
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let	g:go_fmt_command = "goimports" 
+let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave = 1
 let g:go_version_warning = 0
- 
+
 " ctrlp
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -126,7 +129,7 @@ call neomake#configure#automake('nrwi', 500)
 " => Keybindings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set a map leader for more key combos
-let mapleader = ',' 
+let mapleader = ','
 
 " Toggle spell checking
 nnoremap <leader>ss :set spell!<Enter>
@@ -134,8 +137,8 @@ nnoremap <leader>ss :set spell!<Enter>
 nnoremap <leader>rr :source ~/.config/nvim/init.vim<Enter>
 
 " Shortcut for typing lists
-nnoremap <leader>o :normal o- <ENTER>i 
-nnoremap <leader>O :normal O- <ENTER>i 
+nnoremap <leader>o :normal o- <ENTER>i
+nnoremap <leader>O :normal O- <ENTER>i
 
 " Dropdown menu
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
