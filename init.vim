@@ -36,6 +36,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'davidhalter/jedi-vim'
     Plug 'sbdchd/neoformat'
 
+    Plug 'mxw/vim-jsx'
+    Plug 'pangloss/vim-javascript'
+
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
