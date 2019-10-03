@@ -38,6 +38,8 @@ call plug#begin('~/.config/nvim/plugged')
 
     Plug 'mxw/vim-jsx'
     Plug 'pangloss/vim-javascript'
+    
+    Plug 'lervag/vimtex'
 
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
@@ -128,6 +130,20 @@ let g:neomake_python_pylint_maker = {
 let g:neomake_python_enabled_makers = ['pylint']
 call neomake#configure#automake('nrwi', 500)
 
+" VIMTEX
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" This is new style
+call deoplete#custom#var('omni', 'input_patterns', {
+      \ 'tex': g:vimtex#re#deoplete
+      \})
+
+" let g:vimtex_view_method = 'zathura'
+" settings for zathura
+let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_general_options
+    \ = '-reuse-instance -forward-search @tex @line @pdf'
+let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Keybindings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -151,3 +167,5 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <Tab> pumvisible() ? "\<Right>" : "\<Tab>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
+" NERDTree
+nnoremap <leader>n :NERDTreeToggle<CR>
