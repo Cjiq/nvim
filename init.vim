@@ -41,6 +41,9 @@ call plug#begin('~/.config/nvim/plugged')
     
     Plug 'lervag/vimtex'
 
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
@@ -132,17 +135,28 @@ call neomake#configure#automake('nrwi', 500)
 
 " VIMTEX
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " This is new style
 call deoplete#custom#var('omni', 'input_patterns', {
       \ 'tex': g:vimtex#re#deoplete
       \})
 
-" let g:vimtex_view_method = 'zathura'
 " settings for zathura
 let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_view_general_options
     \ = '-reuse-instance -forward-search @tex @line @pdf'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+
+" Snippets
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-y>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Keybindings
