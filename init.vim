@@ -61,9 +61,6 @@ set clipboard=unnamed
 " Faster redrawing
 set ttyfast
 
-" Listchars
-set listchars=tab:▸\ ,trail:·,precedes:←,extends:→
-
 " Use relative numbering
 set relativenumber
 set number
@@ -75,6 +72,12 @@ syntax on
 set expandtab
 set tabstop=4 " the visible width of tabs
 set shiftwidth=4 " number of spaces to use for indent and unindent
+
+" Listchars
+set listchars=tab:▸\ ,trail:·,precedes:←,extends:→
+
+" Cursor line
+set cursorline
 
 " Faster tmux
 set ttimeoutlen=100
@@ -94,6 +97,7 @@ let g:ctrlp_show_hidden = 1
 
 " config LaTeX
 let g:vimtex_view_method = 'zathura'
+let g:tex_flavor = 'latex'
 
 " GOLANG
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -166,7 +170,9 @@ let mapleader = ','
 
 " Toggle spell checking
 nnoremap <leader>ss :set spell!<Enter>
-" Reload vimrc
+
+" Open and Reload vimrc
+nnoremap <leader>vm :vsp ~/.config/nvim/init.vim<CR>
 nnoremap <leader>rr :source ~/.config/nvim/init.vim<Enter>
 
 " Shortcut for typing lists
