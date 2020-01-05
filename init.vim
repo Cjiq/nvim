@@ -44,6 +44,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
 
+    Plug 'christoomey/vim-tmux-navigator'
+
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
@@ -189,3 +191,12 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " NERDTree
 nnoremap <leader>n :NERDTreeToggle<CR>
+
+" vim-tmux-navigator
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-b>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-b>j :TmuxNavigateDown<cr>
+nnoremap <silent> <C-b>k :TmuxNavigateUp<cr>
+nnoremap <silent> <C-b>l :TmuxNavigateRight<cr>
+nnoremap <silent> <C-b>\ :TmuxNavigatePrevious<cr>
