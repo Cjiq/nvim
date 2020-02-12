@@ -31,13 +31,17 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'fatih/vim-go'
     Plug 'chrisbra/Colorizer'
 
+    Plug 'mattn/emmet-vim'
+
     Plug 'neomake/neomake'
     Plug 'zchee/deoplete-jedi'
     Plug 'davidhalter/jedi-vim'
     Plug 'sbdchd/neoformat'
 
     Plug 'mxw/vim-jsx'
-    Plug 'pangloss/vim-javascript'
+    Plug 'chemzqm/vim-jsx-improve'
+
+    "Plug 'pangloss/vim-javascript'
     
     Plug 'lervag/vimtex'
 
@@ -58,7 +62,7 @@ set background=dark
 colorscheme monokai
 
 " Share clipboard between vim instances
-set clipboard=unnamed
+set clipboard+=unnamedplus
 
 " Faster redrawing
 set ttyfast
@@ -169,6 +173,9 @@ let g:UltiSnipsEditSplit="vertical"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set a map leader for more key combos
 let mapleader = ','
+
+" Auto-indent buffer
+nnoremap <leader>ii gg=G
 
 " Toggle spell checking
 nnoremap <leader>ss :set spell!<Enter>
