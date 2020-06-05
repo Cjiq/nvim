@@ -10,9 +10,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if empty(glob('~/.config/nvim/plugged/deoplete.nvim'))
-  silent !pip3 install --user pynvim jedi yapf pylint
-endif
+" if empty(glob('~/.config/nvim/plugged/deoplete.nvim'))
+"   silent !pip3 install --user pynvim jedi yapf pylint
+" endif
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -40,7 +40,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'lervag/vimtex'
     Plug 'mattn/emmet-vim'
     Plug 'mxw/vim-jsx'
-    " Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neomake/neomake'
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'plasticboy/vim-markdown'
@@ -48,7 +48,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'powerman/vim-plugin-AnsiEsc'
     Plug 'sbdchd/neoformat'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'SirVer/ultisnips'
     Plug 'SirVer/ultisnips'
     Plug 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
@@ -112,7 +112,7 @@ syntax on
 
 " Deoplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 " show hidden files
 let g:ctrlp_show_hidden = 1
@@ -143,8 +143,10 @@ autocmd FileType go nmap <leader>f  :GoFmt<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
 
-" au BufNewFile,BufRead *.ts setlocal filetype=typescript
-" au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+" autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
+" autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Markdown
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -206,7 +208,7 @@ let g:ctrlp_abbrev = {
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " disable autocompletion, cause we use deoplete for completion
-let g:jedi#completions_enabled = 0
+" let g:jedi#completions_enabled = 0
 
 " open the go-to function in split, not another buffer
 let g:jedi#use_splits_not_buffers = "right"
@@ -233,9 +235,9 @@ call neomake#configure#automake('nrwi', 500)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " This is new style
-call deoplete#custom#var('omni', 'input_patterns', {
-      \ 'tex': g:vimtex#re#deoplete
-      \})
+" call deoplete#custom#var('omni', 'input_patterns', {
+"       \ 'tex': g:vimtex#re#deoplete
+"       \})
 
 " settings for zathura
 let g:vimtex_view_general_viewer = 'zathura'
